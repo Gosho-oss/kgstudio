@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -111,9 +113,14 @@
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #a3a3a3 100%);
+            background: linear-gradient(135deg, #D3AF37 0%, #F9E2AF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 100px;
         }
 
         /* --- TYPOGRAPHY --- */
@@ -135,6 +142,8 @@
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 20px;
             letter-spacing: -0.01em;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
         }
 
         h3 {
@@ -249,6 +258,8 @@
 
         .hero-title {
             margin-bottom: 24px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
         }
 
         .hero-subtitle {
@@ -539,6 +550,119 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 padding: 20px 0;
             }
+
+            /* --- MIGRATED RESPONSIVE FOR NEW ABOUT --- */
+            .about-container {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .about-left,
+            .about-right {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* --- NEW ABOUT SECTION STYLES --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-left {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .about-heading {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 40px;
+        }
+
+        .about-dot {
+            color: #D3AF37;
+        }
+
+        .about-text {
+            color: #a3a3a3;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .about-est {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            color: #D3AF37;
+            /* Gold color */
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        .about-est::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background-color: #D3AF37;
+        }
+
+        .about-right {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .quote-card {
+            background-color: #0d0d0d;
+            /* Very dark background */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+        }
+
+        /* Subtle glow effect for the card border/bg if desired, keeping it minimal as per image */
+        .quote-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.05);
+            /* Very subtle tint */
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #d4d4d4;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -564,8 +688,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1 class="hero-title reveal">Websites That Help Small Businesses <span class="text-gradient">Get More
-                    Clients</span></h1>
+            <h1 class="hero-title reveal">Websites That Help Small Businesses <br><span class="text-gradient">Get More
+                    Clients</span><span class="about-dot">.</span></h1>
             <p class="hero-subtitle reveal">We design modern, high-converting websites that turn visitors into loyal
                 customers for your brand.</p>
             <div class="hero-btns reveal">
@@ -577,18 +701,29 @@
 
     <!-- About Section -->
     <section id="about" class="section-padding">
-        <div class="container">
-            <div class="grid"
-                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
-                <div class="reveal">
-                    <h2 class="text-gradient">More Than Just<br>Pretty Design</h2>
-                </div>
-                <div class="reveal">
-                    <p style="margin-bottom: 20px;">At KG Studio, we believe your website should be your best
-                        salesperson. We don't just make things look good; we build strategic digital experiences
-                        designed to grow your business.</p>
-                    <p>Focused on small businesses, we cut through the noise to deliver clear, fast, and effective
-                        websites that drive real results. No jargon, just growth.</p>
+        <div class="container about-container">
+            <!-- Left Side: Content -->
+            <div class="about-left reveal">
+                <h2 class="about-heading">ABOUT US<span class="about-dot">.</span></h2>
+                <p class="about-text">
+                    KG Studio is a small project driven by big passion.
+                    Behind every design is a young creator who loves digital design, creativity, and attention to
+                    detail.
+                    Each project is crafted with purpose — not just to look good, but to tell a story and help brands
+                    stand out.
+                </p>
+
+                <div class="about-est">EST. 2026</div>
+            </div>
+
+            <!-- Right Side: Quote Card -->
+            <div class="about-right reveal">
+                <div class="quote-card">
+                    <div class="quote-icon">”</div>
+                    <p class="quote-text">
+                        "Our mission is to bring the emotion of the automotive world directly to your wall — from
+                        timeless classics to modern supercars, captured through original, custom design."
+                    </p>
                 </div>
             </div>
         </div>
@@ -750,28 +885,21 @@
 
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>hello@kgstudio.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+1 (555) 123-4567</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Web Studio, Digital City</span>
+                        <span>kgstudiobg@outlook.com</span>
                     </div>
                 </div>
 
                 <div class="contact-form-wrapper reveal">
-                    <form onsubmit="event.preventDefault(); alert('Message sent! We will contact you soon.');">
+                    <form action="https://formspree.io/f/xeeanwbj" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-input" placeholder="Tell us about your project" required></textarea>
+                            <textarea name="message" class="form-input" placeholder="Tell us about your project"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
@@ -796,7 +924,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2024 KG Studio. All rights reserved.
+                &copy; 2026 KG Studio. All rights reserved.
             </div>
         </div>
     </footer>
