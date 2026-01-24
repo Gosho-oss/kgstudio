@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronPulse Fitness | Premium Gym</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #e63946;
+            --dark: #111;
+            --text: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff4d5a;
+            transform: translateY(-3px);
+        }
+
+        /* Navbar */
+        nav {
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #bbb;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--primary);
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 20px;
+        }
+
+        .stat h3 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Classes */
+        .classes {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            color: #fff;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .class-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .class-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            filter: grayscale(100%);
+        }
+
+        .class-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .class-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, #000);
+        }
+
+        .class-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .class-info p {
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Membership */
+        .membership {
+            background: #0a0a0a;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-card {
+            background: #151515;
+            padding: 50px 30px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .price-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .price-card .amount {
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .price-card li {
+            margin-bottom: 15px;
+            color: #888;
+            display: flex;
+            gap: 10px;
+        }
+
+        .price-card li i {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 100px;
+            border-top: 1px solid #222;
+            background: #000;
+        }
+
+        /* KG Studio Banner */
+        .kg-banner {
+            background: #fff;
+            color: #000;
+            padding: 15px 0;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .kg-banner a {
+            font-weight: bold;
+            color: #000;
+            text-decoration: underline;
+        }
+
+        @media(max-width: 900px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">IRON<span>PULSE</span></div>
+            <div class="nav-links">
+                <a href="#">Trainers</a>
+                <a href="#">Classes</a>
+                <a href="#">Membership</a>
+                <a href="#">Schedule</a>
+            </div>
+            <a href="#" class="btn" style="padding: 10px 30px; font-size: 1.2rem;">Join Now</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Forge Your<br><span style="color: var(--primary);">Legacy</span></h1>
+                <p>State-of-the-art equipment, elite trainers, and a community that pushes you further. Welcome to the
+                    next level of fitness.</p>
+                <a href="#" class="btn">Get Started Free</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Access</p>
+            </div>
+            <div class="stat">
+                <h3>45+</h3>
+                <p>Expert Trainers</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Machines</p>
+            </div>
+            <div class="stat">
+                <h3>1k+</h3>
+                <p>Members</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="classes container">
+        <div class="section-header">
+            <h2 class="section-title">Our Classes</h2>
+            <a href="#" style="color: #888; margin-bottom: 10px;">View Full Schedule <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="class-grid">
+            <div class="class-card">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
+                    alt="Crossfit">
+                <div class="class-info">
+                    <h3>Crossfit</h3>
+                    <p>High Intensity</p>
+                </div>
+            </div>
+            <div class="class-card">
+                <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=800&auto=format&fit=crop"
+                    alt="Strength">
+                <div class="class-info">
+                    <h3>Powerlifting</h3>
+                    <p>Strength Focus</p>
+                </div>
+            </div>
+            <div class="class-card">
+                <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop"
+                    alt="Cardio">
+                <div class="class-info">
+                    <h3>HIIT Cardio</h3>
+                    <p>Endurance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="membership">
+        <div class="container">
+            <h2 class="section-title">Membership Plans</h2>
+            <div class="price-grid">
+                <!-- Basic -->
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <span class="amount">$29</span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Gym Access</li>
+                        <li><i class="fas fa-check"></i> Locker Room</li>
+                        <li><i class="fas fa-check"></i> 1 Intro Session</li>
+                    </ul>
+                    <button class="btn" style="background: #333; font-size: 1.2rem;">Select</button>
+                </div>
+                <!-- Pro -->
+                <div class="price-card" style="border-color: var(--primary); transform: scale(1.05);">
+                    <div
+                        style="background: var(--primary); color: #fff; font-size: 0.8rem; padding: 5px; margin-bottom: 10px; display: inline-block;">
+                        POPULAR</div>
+                    <h3 style="color: #fff;">Pro Athlete</h3>
+                    <span class="amount">$59</span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 24/7 Access</li>
+                        <li><i class="fas fa-check"></i> All Classes Included</li>
+                        <li><i class="fas fa-check"></i> Guest Pass (1/mo)</li>
+                        <li><i class="fas fa-check"></i> Sauna Access</li>
+                    </ul>
+                    <button class="btn" style="font-size: 1.2rem;">Select</button>
+                </div>
+                <!-- Elite -->
+                <div class="price-card">
+                    <h3>Elite</h3>
+                    <span class="amount">$99</span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> All Pro Features</li>
+                        <li><i class="fas fa-check"></i> Personal Training (2x/mo)</li>
+                        <li><i class="fas fa-check"></i> Nutrition Plan</li>
+                    </ul>
+                    <button class="btn" style="background: #333; font-size: 1.2rem;">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
+                <div>
+                    <div class="logo">IRON<span>PULSE</span></div>
+                    <p style="color: #666; max-width: 300px; margin-top: 20px;">Designed for those who refuse to be
+                        average. Join the movement today.</p>
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <div>
+                        <h4 style="margin-bottom: 20px; font-family: 'Teko', sans-serif; font-size: 1.5rem;">Gym</h4>
+                        <ul style="color: #666; line-height: 2;">
+                            <li>About Us</li>
+                            <li>Careers</li>
+                            <li>Privacy</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 20px; font-family: 'Teko', sans-serif; font-size: 1.5rem;">Contact
+                        </h4>
+                        <ul style="color: #666; line-height: 2;">
+                            <li>123 Fitness Blvd</li>
+                            <li>(555) 999-8888</li>
+                            <li>info@ironpulse.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- KG STUDIO BANNER -->
+    <div class="kg-banner">
+        <span>Sample site from <strong>KG Studio</strong></span>
+        <span>&bull;</span>
+        <a href="index.html">Back to Portfolio</a>
+    </div>
+
+</body>
+
+</html>
