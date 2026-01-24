@@ -20,20 +20,24 @@
     <style>
         /* --- VARIABLES --- */
         :root {
-            --bg-body: #0a0a0a;
-            --bg-card: #141414;
-            --bg-card-hover: #1f1f1f;
+            /* Premium Dark Teal/Blue Palette */
+            --bg-body: #050a0e;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
             --text-main: #e5e5e5;
-            --text-muted: #a3a3a3;
+            --text-muted: #9ca3af;
             --accent: #ffffff;
             --accent-dim: #404040;
-            --primary: #3b82f6;
-            /* Subtle modern blue for CTAs */
-            --primary-hover: #2563eb;
+            --primary: #96bf48;
+            /* Vibrant Green */
+            --secondary: #4d76f5;
+            /* Electric Blue */
             --spacing-section: 120px;
-            --radius-card: 16px;
-            --radius-btn: 30px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --radius-card: 24px;
+            --radius-btn: 50px;
+            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
         /* --- RESET --- */
@@ -43,8 +47,11 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         body {
@@ -52,7 +59,6 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -113,14 +119,16 @@
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #D3AF37 0%, #F9E2AF 100%);
+            background: linear-gradient(135deg, #96bf48 0%, #4EA33D 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display',
+                serif;
             font-style: italic;
             font-weight: 700;
-            font-size: 100px;
+            font-size: clamp(3rem, 12vw, 6.25rem);
+            /* Responsive font size */
         }
 
         /* --- TYPOGRAPHY --- */
@@ -168,16 +176,17 @@
         }
 
         .btn-primary {
-            background-color: var(--text-main);
-            color: var(--bg-body);
-            border: 1px solid var(--text-main);
+            background: linear-gradient(135deg, #96bf48 0%, #3a9b3a 100%);
+            color: #000;
+            border: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(150, 191, 72, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(150, 191, 72, 0.5);
+            color: #000;
         }
 
         .btn-outline {
@@ -246,8 +255,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.03), transparent 25%);
+            background: radial-gradient(circle at 50% 0%, rgba(77, 118, 245, 0.15), transparent 60%),
+                radial-gradient(circle at 10% 20%, rgba(150, 191, 72, 0.05), transparent 40%);
         }
 
         .hero-content {
@@ -295,10 +304,19 @@
 
         .service-card {
             background: var(--bg-card);
+            backdrop-filter: blur(10px);
             padding: 40px 30px;
             border-radius: var(--radius-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: var(--glass-border);
             transition: var(--transition);
+            box-shadow: var(--shadow-card);
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
         }
 
         .service-card:hover {
@@ -322,15 +340,27 @@
         }
 
         .project-card {
-            group: relative;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--radius-card);
+            border: var(--glass-border);
+            transition: var(--transition);
             cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
         .project-img {
             width: 100%;
             aspect-ratio: 16/10;
             background-color: #222;
-            border-radius: var(--radius-card);
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 20px;
             position: relative;
@@ -523,6 +553,11 @@
         }
 
         @media (max-width: 768px) {
+            :root {
+                --spacing-section: 60px;
+                /* Tighter spacing on mobile */
+            }
+
             .nav-links {
                 display: none;
             }
@@ -534,10 +569,24 @@
 
             .hero-btns {
                 flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                /* Full width buttons on mobile */
+                text-align: center;
             }
 
             .contact-layout {
                 flex-direction: column;
+                gap: 40px;
+            }
+
+            .contact-info,
+            .contact-form-wrapper {
+                min-width: 100%;
+                /* Fix overflow issue */
             }
 
             .why-us-grid {
@@ -555,12 +604,23 @@
             .about-container {
                 flex-direction: column;
                 text-align: left;
+                gap: 30px;
+                /* Reduced gap */
             }
 
             .about-left,
             .about-right {
                 width: 100%;
                 max-width: 100%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                /* Better scaling */
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
             }
         }
 
@@ -590,7 +650,7 @@
         }
 
         .about-dot {
-            color: #D3AF37;
+            color: var(--primary);
         }
 
         .about-text {
@@ -607,8 +667,8 @@
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.2rem;
-            color: #D3AF37;
-            /* Gold color */
+            color: var(--primary);
+            /* Green color */
             margin-top: 40px;
             text-transform: uppercase;
         }
@@ -618,7 +678,7 @@
             display: block;
             width: 40px;
             height: 1px;
-            background-color: #D3AF37;
+            background-color: var(--primary);
         }
 
         .about-right {
@@ -627,12 +687,13 @@
         }
 
         .quote-card {
-            background-color: #0d0d0d;
-            /* Very dark background */
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: var(--glass-border);
             border-radius: 20px;
             padding: 50px 40px;
             position: relative;
+            box-shadow: var(--shadow-card);
         }
 
         /* Subtle glow effect for the card border/bg if desired, keeping it minimal as per image */
@@ -730,7 +791,11 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding" style="background-color: #0e0e0e;">
+    <section id="services" class="section-padding" style="position: relative;">
+        <!-- Background blob for premium feel -->
+        <div
+            style="position: absolute; top: 20%; left: 0; width: 40%; height: 60%; background: radial-gradient(circle, rgba(150, 191, 72, 0.03), transparent 70%); pointer-events: none;">
+        </div>
         <div class="container">
             <div class="section-header centered reveal">
                 <h2>Our Services</h2>
@@ -813,27 +878,13 @@
                 <!-- Project 3 -->
                 <div class="project-card reveal">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop"
-                            alt="Consulting Website">
+                        <img src="Screenshot 2026-01-24 at 9.10.35 PM.png" alt="Wallscape">
                     </div>
                     <div class="project-info">
-                        <h3>Apex Financial</h3>
-                        <p>Corporate identity and lead gen for a firm.</p>
-                        <a href="apex-financial.html" class="btn-link">View Project <i
+                        <h3>Wallscape</h3>
+                        <p>Unique automotive posters for car enthusiasts.</p>
+                        <a href="https://wallscape.me" class="btn-link" target="_blank">View Project <i
                                 class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project 4 (Optional) -->
-                <div class="project-card reveal">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1595475207225-428bc626c8e5?q=80&w=1000&auto=format&fit=crop"
-                            alt="Auto Service">
-                    </div>
-                    <div class="project-info">
-                        <h3>DriveCare Auto</h3>
-                        <p>Service menu and appointment booking integration.</p>
-                        <a href="drivecare.html" class="btn-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -841,10 +892,10 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section id="benefits" class="section-padding" style="background: #0e0e0e;">
+    <section id="benefits" class="section-padding">
         <div class="container">
             <div class="grid why-us-grid reveal">
-                <div class="benefit-item">
+                <div class="benefit-item" style="border-color: rgba(255,255,255,0.05);">
                     <h3>Fast Delivery</h3>
                     <p>We respect your time. Get your website up and running in weeks, not months.</p>
                 </div>
