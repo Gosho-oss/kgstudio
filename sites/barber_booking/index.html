@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grooming Room | Premium Barber Studio</title>
+    <meta name="description"
+        content="Premium barber studio offering artistic haircuts, beard trims, and traditional shaves. Book your appointment online today.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="kg-banner">
+        Sample site from KG Studio • <a href="../../index.html">Back to Portfolio</a>
+    </div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-text">GROOMING ROOM</span>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#booking" class="btn-small">Book Now</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1920"
+                alt="Barber Studio Interior">
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content container">
+            <h1 class="reveal">Mastering the Art of <span class="accent">Grooming</span></h1>
+            <p class="reveal">Experience the perfect blend of traditional craftsmanship and modern style.</p>
+            <div class="hero-btns reveal">
+                <a href="#booking" class="btn btn-primary">Book Your Appointment</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="accent">Services</span></h2>
+                <p>Tailored treatments for the modern gentleman</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1621605815841-db896c47317e?auto=format&fit=crop&q=80&w=600"
+                            alt="Classic Haircut">
+                    </div>
+                    <div class="service-info">
+                        <h3>Classic Haircut</h3>
+                        <p>A precision cut tailored to your head shape and style preferences.</p>
+                        <span class="price">From $35</span>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=600"
+                            alt="Beard Trim">
+                    </div>
+                    <div class="service-info">
+                        <h3>Beard Sculpting</h3>
+                        <p>Maintain your beard's shape with expert trimming and edge-up.</p>
+                        <span class="price">From $25</span>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1593702275677-f916c8c7041d?auto=format&fit=crop&q=80&w=600"
+                            alt="Traditional Shave">
+                    </div>
+                    <div class="service-info">
+                        <h3>Luxe Hot Shave</h3>
+                        <p>A relaxing straight razor shave with premium oils and hot towels.</p>
+                        <span class="price">From $45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-flex">
+                <div class="about-content reveal">
+                    <h2>Defining <span class="accent">Excellence</span> Since 2018</h2>
+                    <p>At The Grooming Room, we believe that a haircut is more than just a routine—it's an experience.
+                        Our studio combines the timeless atmosphere of a vintage barbershop with contemporary techniques
+                        to ensure you leave looking and feeling your absolute best.</p>
+                    <p>Our team of master barbers is dedicated to the craft, paying attention to every detail to deliver
+                        a look that complements your individual personality.</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Master Barbers</li>
+                        <li><i class="fas fa-check"></i> Premium Products</li>
+                        <li><i class="fas fa-check"></i> Complimentary Drink</li>
+                    </ul>
+                </div>
+                <div class="about-img reveal">
+                    <img src="https://images.unsplash.com/photo-1512690118294-70038c967a64?auto=format&fit=crop&q=80&w=800"
+                        alt="Barber Studio Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Reserve Your <span class="accent">Spot</span> Online</h2>
+                <p>Quick and easy booking through TIMIFY</p>
+            </div>
+            <div class="booking-container reveal">
+                <!-- TIMIFY EMBED CODE -->
+                <div id="timify-widget-container">
+                    <iframe src="https://book.timify.com/?accountId=69763ce7713ab49d8961548e&hideCloseButton=true"
+                        style="width: 100%; height: 600px; border: none;" title="TIMIFY Booking Widget">
+                    </iframe>
+                </div>
+                <div class="booking-fallback">
+                    <p>Having trouble with the widget?</p>
+                    <a href="https://book.timify.com/?accountId=69763ce7713ab49d8961548e&hideCloseButton=true"
+                        target="_blank" class="btn btn-primary">Open TIMIFY in New Tab</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h2>Get in <span class="accent">Touch</span></h2>
+                    <p>Have questions or want to book via phone? Reach out to us.</p>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@groomingroom.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Barber Street, Studio City, CA 91604</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.8897534571997!2d-118.40124842345681!3d34.14371511252984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29571ecf605f5%3A0x6a0c5c4e7f3c3a4a!2sStudio%20City%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="contact-form reveal">
+                    <form id="barber-contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">GROOMING ROOM</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Grooming Room. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

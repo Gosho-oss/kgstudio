@@ -354,7 +354,6 @@
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
@@ -379,7 +378,6 @@
         }
 
         .project-card:hover .project-img img {
-            transform: scale(1.05);
             filter: grayscale(0%);
         }
 
@@ -957,7 +955,7 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="section-padding">
         <div class="container">
-            <div class="section-header flex-between reveal">
+            <div class="section-header flex-between">
                 <div>
                     <h2>Selected Work</h2>
                     <p>Real results for real businesses.</p>
@@ -965,9 +963,9 @@
                 <a href="#" class="btn btn-outline" style="display: none;">View All</a>
             </div>
 
-            <div class="grid portfolio-grid stagger-container">
+            <div class="grid portfolio-grid">
                 <!-- Project 1 -->
-                <div class="project-card reveal">
+                <div class="project-card">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop"
                             alt="Restaurant Website">
@@ -980,7 +978,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card reveal delay-200">
+                <div class="project-card">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop"
                             alt="Gym Website">
@@ -993,7 +991,21 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card reveal delay-400">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1920"
+                            alt="Barber Studio">
+                    </div>
+                    <div class="project-info">
+                        <h3>The Grooming Room</h3>
+                        <p>Premium barber studio with online booking.</p>
+                        <a href="sites/barber_booking/index.html" class="btn-link">View Project <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Previously 3) -->
+                <div class="project-card">
                     <div class="project-img">
                         <img src="Screenshot 2026-01-24 at 9.10.35 PM.png" alt="Wallscape">
                     </div>
@@ -1138,7 +1150,7 @@
         });
 
         // Mouse Move Parallax Effect
-        const cards = document.querySelectorAll('.quote-card, .service-card, .project-card');
+        const cards = document.querySelectorAll('.quote-card, .service-card');
 
         document.addEventListener('mousemove', (e) => {
             const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
