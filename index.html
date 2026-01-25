@@ -55,6 +55,7 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -537,11 +538,72 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            will-change: transform, opacity;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Staggered Reveal System */
+        .stagger-container .reveal {
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms !important;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms !important;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms !important;
+        }
+
+        .delay-400 {
+            transition-delay: 400ms !important;
+        }
+
+        .delay-500 {
+            transition-delay: 500ms !important;
+        }
+
+        /* Custom Keyframes */
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        /* Accent Line Reveal */
+        .about-est {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-est::before {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s cubic-bezier(0.5, 0, 0, 1) 0.5s;
+        }
+
+        .about-est.active::before {
+            transform: scaleX(1);
         }
 
         /* --- RESPONSIVE --- */
@@ -796,12 +858,13 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
+        <div class="container hero-content stagger-container">
             <h1 class="hero-title reveal">Websites That Help Small Businesses <br><span class="text-gradient">Get More
                     Clients</span><span class="about-dot">.</span></h1>
-            <p class="hero-subtitle reveal">We design modern, high-converting websites that turn visitors into loyal
+            <p class="hero-subtitle reveal delay-100">We design modern, high-converting websites that turn visitors into
+                loyal
                 customers for your brand.</p>
-            <div class="hero-btns reveal">
+            <div class="hero-btns reveal delay-200">
                 <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
                 <a href="#portfolio" class="btn btn-outline">View Our Work</a>
             </div>
@@ -812,27 +875,24 @@
     <section id="about" class="section-padding">
         <div class="container about-container">
             <!-- Left Side: Content -->
-            <div class="about-left reveal">
-                <h2 class="about-heading">ABOUT US<span class="about-dot">.</span></h2>
-                <p class="about-text">
-                    KG Studio is a small project driven by big ambition. Behind every website is a passionate creator
-                    who loves digital design, functionality, and helping businesses grow. Each project is carefully
-                    crafted — not just to look modern and professional, but to communicate a brand’s story and connect
-                    with real customers. Our work is guided by creativity, precision, and the desire to make small
-                    businesses shine online.
+            <div class="about-left stagger-container">
+                <h2 class="about-heading reveal">ABOUT US<span class="about-dot">.</span></h2>
+                <p class="about-text reveal delay-100">
+                    KG Studio is a web design studio focused on creating professional websites for small businesses. We
+                    help local brands and entrepreneurs build a strong online presence, reach more people, and turn
+                    visitors into real customers. Our websites are modern, fast, and tailored to each business,
+                    combining clean design with functionality and clear structure.
                 </p>
 
-                <div class="about-est">EST. 2026</div>
+                <div class="about-est reveal delay-200">EST. 2026</div>
             </div>
 
             <!-- Right Side: Quote Card -->
-            <div class="about-right reveal">
-                <div class="quote-card">
+            <div class="about-right reveal delay-300">
+                <div class="quote-card floating">
                     <div class="quote-icon">”</div>
                     <p class="quote-text">
-                        “Our mission is to help small businesses thrive in the digital world — creating websites that
-                        don’t just exist online, but tell their story, attract clients, and grow their brand with style
-                        and purpose.”
+                        “We build websites that help small businesses grow and reach more customers.”
                     </p>
                 </div>
             </div>
@@ -851,7 +911,7 @@
                 <p>Everything you need to establish a powerful online presence.</p>
             </div>
 
-            <div class="grid services-grid">
+            <div class="grid services-grid stagger-container">
                 <!-- Service 1 -->
                 <div class="service-card reveal">
                     <i class="fas fa-rocket service-icon"></i>
@@ -860,32 +920,32 @@
                         effective.</p>
                 </div>
                 <!-- Service 2 -->
-                <div class="service-card reveal">
+                <div class="service-card reveal delay-100">
                     <i class="fas fa-laptop-code service-icon"></i>
                     <h3>Landing Pages</h3>
                     <p>High-conversion single pages designed specifically for marketing campaigns and sales.</p>
                 </div>
                 <!-- Service 3 -->
-                <div class="service-card reveal">
+                <div class="service-card reveal delay-200">
                     <i class="fas fa-sync-alt service-icon"></i>
                     <h3>Code Modernization</h3>
                     <p>Refactor and upgrade legacy code for better performance and security using automated solutions.
                     </p>
                 </div>
                 <!-- Service 4 -->
-                <div class="service-card reveal">
+                <div class="service-card reveal delay-300">
                     <i class="fas fa-search service-icon"></i>
                     <h3>Semantic SEO Structure</h3>
                     <p>Search-engine optimized code structure generated for maximum visibility and indexing.</p>
                 </div>
                 <!-- Service 5 -->
-                <div class="service-card reveal">
+                <div class="service-card reveal delay-400">
                     <i class="fas fa-mobile-alt service-icon"></i>
                     <h3>Mobile Optimization</h3>
                     <p>Flawless experience on all devices, ensuring you never miss a mobile lead.</p>
                 </div>
                 <!-- Service 6 -->
-                <div class="service-card reveal">
+                <div class="service-card reveal delay-500">
                     <i class="fas fa-id-card service-icon"></i>
                     <h3>Portfolio & Personal Sites</h3>
                     <p>Stunning personal websites and digital resumes that showcase your work professionally.</p>
@@ -905,7 +965,7 @@
                 <a href="#" class="btn btn-outline" style="display: none;">View All</a>
             </div>
 
-            <div class="grid portfolio-grid">
+            <div class="grid portfolio-grid stagger-container">
                 <!-- Project 1 -->
                 <div class="project-card reveal">
                     <div class="project-img">
@@ -920,7 +980,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card reveal">
+                <div class="project-card reveal delay-200">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop"
                             alt="Gym Website">
@@ -933,7 +993,7 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card reveal">
+                <div class="project-card reveal delay-400">
                     <div class="project-img">
                         <img src="Screenshot 2026-01-24 at 9.10.35 PM.png" alt="Wallscape">
                     </div>
@@ -1059,19 +1119,43 @@
 
         // Reveal Animations on Scroll
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    // Once animated, no need to observe anymore for performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach((el) => {
             observer.observe(el);
+        });
+
+        // Mouse Move Parallax Effect
+        const cards = document.querySelectorAll('.quote-card, .service-card, .project-card');
+
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
+
+            cards.forEach(card => {
+                if (card.getBoundingClientRect().top < window.innerHeight && card.getBoundingClientRect().bottom > 0) {
+                    card.style.transform = `translateY(${yAxis}px) translateX(${xAxis}px)`;
+                }
+            });
+        });
+
+        // Reset transform on mouse leave or when not in focus to avoid "drifting"
+        document.addEventListener('mouseleave', () => {
+            cards.forEach(card => {
+                card.style.transform = `translateY(0px) translateX(0px)`;
+            });
         });
 
         // Mobile Menu Toggle
